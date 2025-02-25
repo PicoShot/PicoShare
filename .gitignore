@@ -17,3 +17,6 @@ Cargo.lock
 /.vscode
 package-lock.json
 src/libs/firebase.tsx
+.env
+/dist
+/~

@@ -13,9 +13,8 @@ fn minimize_window(window: Window) {
 #[cfg_attr(mobile, tauri::mobile_entry_point)]
 pub fn run() {
     tauri::Builder::default()
-        .setup(|_app| {
-            Ok(())
-        })
+        .plugin(tauri_plugin_updater::Builder::new().build())
+        .setup(|_app| Ok(()))
         .plugin(tauri_plugin_shell::init())
         .invoke_handler(tauri::generate_handler![close_window, minimize_window,])
         .run(tauri::generate_context!())
